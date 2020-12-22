@@ -1,41 +1,84 @@
-<div class="property-main-photo" style="background-image:url('<%= property_photo_url @property %>')">
-  <div class="photo-overlay">
-  </div> 
-</div>
-
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-8">     
-      <p>
-        <strong>Name:</strong>
-        <%= @property.name %>
-      </p>
-
-      <p>
-        <strong>Address:</strong>
-        <%= @property.address %>
-      </p>
-
-      <p>
-        <strong>Price:</strong>
-        <%= @property.price %>
-      </p>
-
-      <p>
-        <strong>Rooms:</strong>
-        <%= @property.rooms %>
-      </p>
-
-      <p>
-        <strong>Bathrooms:</strong>
-        <%= @property.bathrooms %>
-      </p>
-
-      <%= link_to 'Edit', edit_property_path(@property) %> |
-      <%= link_to 'Back', properties_path %>
-    </div>
-    <div class="col-4">
-      <%= render "properties/agent_details" %>      
-    </div>
+  <div class="property-main-photo" style="background-image:url('<%= property_photo_url @property %>')">
+    <div class="photo-overlay">
+    </div> 
   </div>
-</div>  
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="mb-0">  <%= @property.address %> </p> 
+            <p class="h2 mb-3">
+              <% if @property.for_sale? %> 
+                <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "For Sale" %>
+              <% else %>
+                 <%= @property.price > 0 ? number_to_currency(@property.price, precision: 0) : "For Rent" %> / month
+              <% end %> 
+            </p>             
+          </div>
+          <div class="col-lg-6 text-center">
+            <div class="row mr-lg-3 mt-sm-3 bg-light p-3">
+              <div class="col-4">
+                <p class="m-0"><strong>Rooms</strong></p>
+                <span class="lead"><%= @property.rooms %></span>
+              </div>
+              <div class="col-4">
+                <p class="m-0"><strong>Bathrooms</strong></p>
+                <span class="lead"><%= @property.bathrooms %></span>
+              </div> 
+              <div class="col-4">
+                <p class="m-0"><strong>Parking</strong></p>                
+                <span class="lead"><%= @property.parking_spaces %></span>
+              </div>
+            </div>
+          </div>  
+        </div>
+
+        <div class="row border-top border-bottom mt-5 mb-4 pt-4 pb-4">
+          <div class="col-6">
+            <% if @property.for_sale? %>
+              <strong><%= link_to "Est. Monthly Repayments of #{ number_to_currency( ( @property.price - (@property.price * 0.1) / 360 ), precision: 0 )}", "#", class:"text-success" %></strong>
+            <% else %>
+              <strong>Available from <%= @property.available_date.strftime("%a") %>, <%= @property.available_date.day.ordinalize %> <%= @property.available_date.strftime("%B") %></strong>
+            <% end %>
+          </div>  
+          <div class="col-6 text-right">
+            <strong><%= link_to "Can I afford this property?" , "#", class: "text-success" %> </strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col"> 
+            <p class="h3"><%= @property.name %></p>     
+            <p class="h5">Property Description</p>
+
+            <div id="prop-details">
+              <%= simple_format @property.details %>
+            </div>  
+
+            <button class="btn btn-outline-info mt-3" id="toggleDetails">
+              Show more
+            </button>  
+
+            <p class="mt-5">* This rate is based on a 30 year mortgage, after paying an initial 10% down payment. Shorter term mortgage would require a higher monthly repayment</p>
+
+            <%= link_to 'Edit', edit_property_path(@property) %> |
+            <%= link_to 'Back', properties_path %>
+          </div>          
+        </div>
+    </div>
+
+      <div class="col-md-4">
+        <%= render "properties/agent_details" %>      
+      </div>        
+    </div>  
+  </div>
+
+  <section class="mt-5 mb-5">
+    <div class="container">
+      <div class="row">
+        <%= render "properties/list", properties: @agent_properties %>
+      </div>
+    </div>
+  </section>

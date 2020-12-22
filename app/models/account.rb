@@ -3,14 +3,12 @@ class Account < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :trackable, :confirmable
+         :trackable, :confirmable        
 
   has_many :properties
+  has_one_attached :image
 
   def full_name
     "#{first_name} #{last_name}" 
-  end
-
-  def company
-  end
+  end  
 end
