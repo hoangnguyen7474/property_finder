@@ -24,12 +24,8 @@ gem 'aws-sdk-s3', require: false
 gem 'active_storage_validations'
 gem 'image_processing', '~> 1.2'
 
-# #image upload to Amazon S3
-# gem 'carrierwave', "0.10.0"
-# gem 'fog', '~> 1.37.0'
-
-# #image resizing
-# gem 'mini_magick'
+# image resizing
+gem 'mini_magick'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

@@ -5,6 +5,21 @@
 
 require("@rails/ujs").start()
 
+var jQuery = require("jquery")
+global.$ = global.jQuery = jQuery
+window.$ = window.jQuery = jQuery
+
+require("bootstrap");
+require("@fortawesome/fontawesome-free/js/all.js");
+
+import toastr from 'toastr';
+  toastr.options = {
+    progressBar: true
+  }
+global.toastr = toastr;
+
+require("./includes/properties");
+
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
