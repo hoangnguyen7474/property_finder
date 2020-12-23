@@ -1,24 +1,19 @@
-# README
+# Real Estate Property
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Real Estate Property platform build (PropTech) using Ruby on Rails 6. 
 
-Things you may want to cover:
+## Main features:
 
-* Ruby version
+1. The sign up / sign in / edit account using the devise gem.
 
-* System dependencies
+2. Add properties (with a photo that gets uploaded to Amazon AWS S3 using the aws-sdk-s3, active_storage_validations,image_processing gem) and build a property profile page.
 
-* Configuration
+3. Show property agent details and related properties from the same agent.
 
-* Database creation
+4. Updating the property profile page to add functionality to view the agent's phone number, visit their profile and send them an email. We'll also add the ability to choose if a property is a rental or for sale and set the move in date for users to see on the profile.
 
-* Database initialization
+5. Updating the agent profile page to show a cover image, user details and stats about properties leased and sold. Users can now change the status of properties to mark them as leased or sold from their user account when signed in. I also added blog posts to the app and improve the homepage styling. In the backend I added an accounts page for admin accounts and ability to add/edit/update blog entries.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
+I also added some responsive css to make our platform mobile / tablet / iPad friendly.
