@@ -4,27 +4,32 @@
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="form-group">
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, class: "form-group" %>
+    <%= f.text_field :first_name, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, class: "form-group" %>
+    <%= f.text_field :last_name, class: "form-control" %>
   </div>
   
   <div class="form-group">
     <%= f.label :email %><br />
-    <%= f.text_field :email, autocomplete: "email", class: "form-group" %>
+    <%= f.text_field :email, autocomplete: "email", class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :telephone %><br />
-    <%= f.text_field :telephone, class: "form-group" %>
+    <%= f.text_field :telephone, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :company %><br />
-    <%= f.text_field :company, class: "form-group" %>
+    <%= f.text_field :company, class: "form-control" %>
+  </div> 
+
+  <div class="form-group">
+    <%= f.label :details %><br />
+    <%= f.text_area :details, class: "form-control" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -33,7 +38,7 @@
 
   <div class="form-group">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "form-group" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> characters minimum</em>
@@ -42,17 +47,22 @@
 
   <div class="form-group">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :image %><br />
-    <%= f.file_field :image, class: "form-group" %>    
+    <%= f.file_field :image, class: "form-control" %>    
+  </div>
+
+  <div class="form-group">
+    <%= f.label :cover_image %><br />
+    <%= f.file_field :cover_image, class: "form-control" %>    
   </div>
 
   <div class="form-group">
