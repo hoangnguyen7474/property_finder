@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_22_150138) do
+ActiveRecord::Schema.define(version: 2020_12_25_042701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,9 @@ ActiveRecord::Schema.define(version: 2020_12_22_150138) do
     t.string "image"
     t.string "company"
     t.string "telephone"
+    t.boolean "admin", default: false
+    t.text "details"
+    t.string "cover_image"
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
@@ -63,6 +66,17 @@ ActiveRecord::Schema.define(version: 2020_12_22_150138) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.string "summary"
+    t.text "body"
+    t.string "image"
+    t.boolean "active", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "properties", force: :cascade do |t|
     t.bigint "account_id"
     t.string "name"
@@ -77,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_12_22_150138) do
     t.text "details"
     t.boolean "for_sale", default: true
     t.datetime "available_date"
+    t.string "status", default: "available"
     t.index ["account_id"], name: "index_properties_on_account_id"
   end
 

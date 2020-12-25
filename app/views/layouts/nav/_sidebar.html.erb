@@ -1,48 +1,11 @@
  <nav class="col-md-2 d-none d-md-block bg-light sidebar">
     <div class="sidebar-sticky">
             <ul class="nav flex-column">
-              <li class="nav-item">
-                <%= link_to dashboard_path, class: "nav-link" do %>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                  Dashboard <span class="sr-only">(current)</span>
-                <% end %>
-              </li>
-              <li class="nav-item">
-                 <%= link_to properties_path, class: "nav-link" do %>
-                  <i data-feather= "package"></i>
-                  Properties
-                <% end %>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <i data-feather= "gift"></i>
-                  Viewings
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <i data-feather="users"></i>
-                  Contacts
-                </a>
-              </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#">
-                <i data-feather="bar-chart-2"></i>
-                  Reports
-                </a>
-              </li> -->
-              
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                  Integrations
-                </a>
-              </li> -->
+              <%= render "layouts/nav/#{ current_account.admin? ? 'admin' : 'user'}" %>    
             </ul>
 
             <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Setting</span>
-              
+              <span>Setting</span>              
             </h6>
             <ul class="nav flex-column mb-2">
               <li class="nav-item">

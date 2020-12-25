@@ -7,7 +7,8 @@ class Account < ApplicationRecord
 
   has_many :properties
   has_one_attached :image
-
+  has_one_attached :cover_image
+  
   def full_name
     "#{first_name} #{last_name}" 
   end  
