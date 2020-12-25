@@ -11,34 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
     <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :url %>
     <%= form.text_field :url, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :summary %>
     <%= form.text_field :summary, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :body %>
     <%= form.text_area :body, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image, class: "form-control" %>
+  <div class="form-group">
+    <%= form.label :photo %>
+    <%= form.file_field :photo, class: "form-control" %>
+    <%= form.hidden_field :photo_cache %>
+
+    <% if @post.photo.attached? %>
+    <%= image_tag(@property.photo, width: 300, class: "img-fluid") %>      
+    <% end %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :active %>
-    <%= form.check_box :active, class: "form-control" %>
+    <%= form.check_box :active %>
   </div>
 
   <div class="actions">

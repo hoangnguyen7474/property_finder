@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_account!  , only: [:new, :create]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :can_access?, except: [:show]
+  before_action :can_access?, except: [:show, :latest]
 
   # GET /posts
   # GET /posts.json
@@ -11,6 +11,11 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   # GET /posts/1.json
+
+  def latest
+    @posts = Post.active
+  end
+
   def show
   end
 
