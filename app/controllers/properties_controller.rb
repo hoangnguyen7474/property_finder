@@ -6,7 +6,11 @@ class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.json
   def index
-    @properties = Property.all
+    if current_account.admin?
+      @properties = Property.all
+    else
+      @properties = current_account.properties.all
+    end
   end
 
   # GET /properties/1
