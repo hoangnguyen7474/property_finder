@@ -84,6 +84,6 @@ test:
 #
 production:
   <<: *default
-  database: property_finder_production
-  username: property_finder
-  password: <%= ENV['PROPERTY_FINDER_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_URL'] %>
+  # username: property_finder
+  # password: <%= ENV['PROPERTY_FINDER_DATABASE_PASSWORD'] %>
