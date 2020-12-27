@@ -1,14 +1,14 @@
-  <main role="main"> 
-    <div class="jumbotron">
-      <div class="container">
-        <h1 class="display-3"> Latest Blog Posts </h1>
-        <p class="text-muted pl-2"><em>Posted <%= time_ago_in_words @post.created_at %></em>  </p>  
-      </div>    
-    </div>
-  </main>
-
-  <div class="container">
-    <%= simple_format @post.body %>
-    <%= image_tag url_for(@post.photo), class: "float-right mb-4 ml-4" if @post.photo.attached? %>
-    <p><%= link_to "View latest blog posts", blog_path %></p>
+<main role="main"> 
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3"> Latest Blog Posts </h1>
+      <p class="text-muted pl-2"><em>Posted <%= time_ago_in_words @post.created_at %></em>  </p>  
+    </div>    
   </div>
+</main>
+
+<div class="container">
+  <%= simple_format @post.body %>
+  <%= image_tag url_for(@post.photo), class: "float-right mb-4 ml-4" if @post.photo.attached? %>
+  <p><%= link_to "View latest blog posts", blog_path %></p>
+</div>

@@ -3,9 +3,7 @@
   <head>
     <title>PropertyFinder</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <%= csp_meta_tag %>    
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
@@ -25,21 +23,19 @@
     <% else %>
       <%= render "layouts/nav/dashboard"%>
 
-      <div class="container-fluid">
-        <div class="row">
-          <%= render "layouts/nav/sidebar" %> 
-          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 mt-4">       
-            <%= yield %>
-          </main> 
-        </div>
-      </div>    
+    <div class="container-fluid">
+      <div class="row">
+        <%= render "layouts/nav/sidebar" %> 
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 mt-4">       
+          <%= yield %>
+        </main> 
+      </div>
+    </div>    
     <% end %>
 
-    <div id="notifications"> <%= flash_notifications %> </div>     
+    <div id="notifications"> <%= flash_notifications %> </div>
 
-  
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     <script>feather.replace()</script>
-
   </body>  
 </html>

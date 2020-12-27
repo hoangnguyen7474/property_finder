@@ -1,5 +1,4 @@
-module PropertiesHelper
-
+module PropertiesHelper  
   def property_thumbnail property
     img = property.photo.attached? ? url_for(property.photo) : "placeholder.png"
     image_tag(img, class: "property-thumb")
