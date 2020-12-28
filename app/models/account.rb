@@ -3,7 +3,7 @@ class Account < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :trackable, :confirmable        
+         :trackable     
 
   has_many :properties
   has_one_attached :image
