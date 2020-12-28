@@ -17,3 +17,17 @@ Real Estate Property platform build (PropTech) using Ruby on Rails 6.
 
 
 I also added some responsive css to make our platform mobile / tablet / iPad friendly.
+
+## The Screenshots
+
+![alt text](https://github.com/hoangnguyen7474/property_finder/blob/main/app/assets/images/Prop-Tech.png?raw=true)
+
+![alt text](https://github.com/hoangnguyen7474/property_finder/blob/main/app/assets/images/Prop-tech-show.png?raw=true)
+
+![alt text](https://github.com/hoangnguyen7474/property_finder/blob/main/app/assets/images/Prop-tech%20Agency%20Profile%20Page.png?raw=true)
+
+![alt text](https://github.com/hoangnguyen7474/property_finder/blob/main/app/assets/images/Prop-tech%20Manage%20Accounts.png?raw=true)
+
+![alt text](https://github.com/hoangnguyen7474/property_finder/blob/main/app/assets/images/Prop%20Tech%20Manage%20Properties.png?raw=true)
+
+
